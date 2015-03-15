@@ -1,37 +1,44 @@
+# Ruby app to help people stay positive through good exercise habits and positive mental stimulation
+# Created 3/12/2015  Alex Wisniewski
+
 puts "=========== Welcome to health monitor ===========\n\n"
 
 puts "Add weekend values to calculate your week day goals"
 
 class Health
+   # prompt display
    @@prompt = "> "
+   
+   # Prompt user for exercise done this weekend
    def exercise
-     
-     puts "\n*Body: Did you run or lift weights this weekend?  Y/N ?"
+     puts "\nBody: Did you run or lift weights this weekend?  Y/N ?"
      print @@prompt
      
          while @@exercise_var = gets.chomp.downcase
-           case @@exercise_var
-                when "y"
+             case @@exercise_var
+                 when "y"
                    puts "Great work!"
                    sleep 2
                    break
-                when "n"
-                  puts "OK.... Well you should run once this week, and also take a walk once after work"
-                  sleep 2
-                  break
-                else
-                 puts "Umh...  please type 'y' or 'n'  for yes or no."
-                 print @@prompt
-           end
+                 when "n"
+                   puts "OK.... Well you should run once this week, and also take a walk once after work"
+                   sleep 2
+                   break
+                 else
+                   puts "Umh...  please type 'y' or 'n'  for yes or no."
+                   print @@prompt
+             end 
         end
    end
    
+   # Prompt user for how much they have done for their mental health
    def fun
-     puts "\n*Mental optimism: Did you do something you ENJOY this weekend?"
+     puts "\nMental optimism: Did you do something you ENJOY this weekend?"
      puts "IE: visit a friend, read a great book, etc  -- Y/N? "
      print @@prompt
   
-           while @@fun_var = gets.chomp.downcase
+            # Begin input of Mental positivity
+            while @@fun_var = gets.chomp.downcase
                  case @@fun_var
                          when "y"
                            puts "Good, I bet you enjoyed that!\n\n Keep up the great work"
@@ -43,6 +50,8 @@ class Health
                            puts " 2) - Call a old friend?"
                            puts " 3) - Read a good book?"
                            puts "Choice 1,2,3 ?" 
+                           
+                                   # Prompt user for a choice from above choices
                                    while @@fun_var_todo = gets.chomp
                                      case @@fun_var_todo
                                        when "1"
@@ -71,8 +80,8 @@ class Health
            end
    end
    
+   # Sumary creator of actions the user should do
    def summary
-     # puts "Starting summary "
      puts "\n   SUMMARY:"
      if (@@exercise_var == "y" && @@fun_var == "y")
        puts "Excellent work!!   You should notice the great health benefits because your had work!"
@@ -92,7 +101,7 @@ class Health
      elsif (@@exercise_var == "n" && @@fun_var == "y")
        puts "[ ]===> Work those muscles!! \n[x]Good job on the mindfulness"
        
-       # Error options for incorrect user selection for menus not including y or n
+     # Error options for incorrect user selection for menus not including y or n
      elsif (@@exercise_var == "n" && @@fun_var != "y")
        puts "[ ]===> Work those muscles!! \n error for to do suggestion"
      elsif (@@exercise_var == "n" && @@fun_var == "y")
@@ -103,6 +112,7 @@ class Health
    end
    
 end
+
 # function calls
 user = Health.new
 user.exercise
