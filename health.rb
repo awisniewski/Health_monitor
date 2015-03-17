@@ -80,11 +80,11 @@ class Health
            end
    end
    
-   # Sumary creator of actions the user should do
+   # Summary creator of actions the user should do
    def summary
      puts "\n   SUMMARY:"
      if (@@exercise_var == "y" && @@fun_var == "y")
-       puts "Excellent work!!   You should notice the great health benefits because your had work!"
+       puts "Excellent work!!   You should notice the great health benefits because your hard work!"
        #sleep 2
      elsif (@@exercise_var == "y" && @@fun_var == "n")
        puts "[x]Good job exercising. \n[ ] ===> Get started on the positive mind work! "
@@ -101,6 +101,7 @@ class Health
      elsif (@@exercise_var == "n" && @@fun_var == "y")
        puts "[ ]===> Work those muscles!! \n[x]Good job on the mindfulness"
        
+       #  To Do ---- This area is probably not necessary now that you have the while loops for error correction
      # Error options for incorrect user selection for menus not including y or n
      elsif (@@exercise_var == "n" && @@fun_var != "y")
        puts "[ ]===> Work those muscles!! \n error for to do suggestion"
