@@ -83,33 +83,34 @@ class Health
    # Summary creator of actions the user should do
    def summary
      puts "\n   SUMMARY:"
-     if (@@exercise_var == "y" && @@fun_var == "y")
-       puts "Excellent work!!   You should notice the great health benefits because your hard work!"
-       #sleep 2
-     elsif (@@exercise_var == "y" && @@fun_var == "n")
-       puts "[x]Good job exercising. \n[ ] ===> Get started on the positive mind work! "
-         case @@fun_var_todo
-          when "1" 
-            puts "To do: Visit relative"
-          when "2" 
-            puts "To do: Call your friend!"
-          when "3"  
-            puts "To do: Take time to read"
-          else
-            puts "Error on Mental selection"
-         end
-     elsif (@@exercise_var == "n" && @@fun_var == "y")
-       puts "[ ]===> Work those muscles!! \n[x]Good job on the mindfulness"
+     
+       # Muscles y/n check and output
+       if (@@exercise_var =="y")
+            puts "[x] Excellent work on the muscles!!"
+         else 
+            puts "[ ]===> Work those muscles!!"
+       end
+     
+       # Mind n, suggestions output
+       if (@@fun_var == "n")
+              puts "[ ]===> Get started on the positive mind work! "
+                     case @@fun_var_todo
+                          when "1" 
+                            puts "To do: Visit relative"
+                          when "2" 
+                            puts "To do: Call your friend!"
+                          when "3"  
+                            puts "To do: Take time to read"
+                          else
+                            puts "Error on Mental selection"
+                     end
        
-       #  To Do ---- This area is probably not necessary now that you have the while loops for error correction
-     # Error options for incorrect user selection for menus not including y or n
-     elsif (@@exercise_var == "n" && @@fun_var != "y")
-       puts "[ ]===> Work those muscles!! \n error for to do suggestion"
-     elsif (@@exercise_var == "n" && @@fun_var == "y")
-       puts "[ ]===> error for to do suggestion \n [x]Good job on the mindfulness"
-     else
-        puts "summary calculation error" 
+       elsif (@@fun_var == "y")
+          puts "[x]Good job on the mindfulness"
+       else
+          puts "summary calculation error" 
      end
+     
    end
    
 end
